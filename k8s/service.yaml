@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: fin
+  name: fin
+  namespace: dev
+spec:
+  ports:
+  - name: '8000'
+    port: 8000
+    targetPort: 8000
+  selector:
+    app: fin
+status:
+  loadBalancer: {}

@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: fin
+  labels:
+    app: fin
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: fin.db.rv.ua
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: fin
+            port:
+              number: 8000
+
